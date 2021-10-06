@@ -8,3 +8,20 @@ springbootdvega:
 spring:
   profiles:
     active: dev
+info:
+  application:
+    name: spring-boot-dvega
+    description: Reddit clone built with SpringBoot
+    version: 0.0.1
+
+  endpoint:
+    health:
+      show-details: always
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - info
+          - health
