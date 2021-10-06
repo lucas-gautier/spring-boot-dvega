@@ -29,6 +29,7 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'com.h2database:h2'
     annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 
     // Application
     // Spring
@@ -44,3 +45,6 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+// Ensure resources are processed before code is compiled
+compileJava.dependsOn(processResources)

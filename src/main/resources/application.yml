@@ -1,3 +1,6 @@
 server:
   servlet:
     context-path: /v1/reddit-clone
+
+springbootdvega:
+  welcome-message: "Hey Amanda, this message overrode the default and was specified in application.yml"
