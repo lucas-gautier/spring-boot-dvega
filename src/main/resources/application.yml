@@ -4,3 +4,7 @@ server:
 
 springbootdvega:
   welcome-message: "Hey Amanda, this message overrode the default and was specified in application.yml"
+
+spring:
+  profiles:
+    active: dev
