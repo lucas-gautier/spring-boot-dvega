@@ -39,11 +39,11 @@ public class SpringBootDvegaApplication {
             System.out.println("Welcome message: " + properties.getWelcomeMessage());
 
             // Print out all bean names in application context
-            String[] beans = applicationContext.getBeanDefinitionNames();
-            Arrays.sort(beans);
-            for(String bean: beans) {
-                System.out.println(bean);
-            }
+//            String[] beans = applicationContext.getBeanDefinitionNames();
+//            Arrays.sort(beans);
+//            for(String bean: beans) {
+//                System.out.println(bean);
+//            }
 
             // Print logs via slf4j
             log.info("CommandLineRunner.run();");
