@@ -6,7 +6,7 @@ plugins {
 
 group = 'lucas'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = '11'
 
 // Disable thin jar creation for boot 2.5.+
 jar {
