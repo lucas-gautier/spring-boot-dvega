@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Entity
-public class Link {
+public class Link extends Auditable{
 
     @Id
     @GeneratedValue
