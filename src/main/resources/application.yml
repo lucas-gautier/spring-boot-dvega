@@ -8,6 +8,16 @@ springbootdvega:
 spring:
   profiles:
     active: dev
+  h2:
+    console:g
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+  # access h2 web console and ensure the JDBC URL matches. User is sa with no password (by default).
+  datasource:
+    url: jdbc:h2:mem:testdb
+
 info:
   application:
     name: spring-boot-dvega
