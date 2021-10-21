@@ -3,13 +3,13 @@ server:
     context-path: /v1/reddit-clone
 
 springbootdvega:
-#  welcome-message: "Hey Amanda, this message overrode the default and was specified in application.yml"
+  welcome-message: "Hey Amanda, this message overrode the default and was specified in application.yml"
 
 spring:
   profiles:
     active: dev
   h2:
-    console:g
+    console:
       enabled: true
       path: /h2-console
       settings:
