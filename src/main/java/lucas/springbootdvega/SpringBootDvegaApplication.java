@@ -1,6 +1,10 @@
 package lucas.springbootdvega;
 
 import lucas.springbootdvega.config.Properties;
+import lucas.springbootdvega.model.Comment;
+import lucas.springbootdvega.model.Link;
+import lucas.springbootdvega.repository.CommentRepository;
+import lucas.springbootdvega.repository.LinkRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +15,11 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.ApplicationContext;
-
-import java.util.Arrays;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
 @EnableConfigurationProperties(Properties.class)
+@EnableJpaAuditing
 public class SpringBootDvegaApplication {
 
     @Autowired
@@ -44,9 +48,22 @@ public class SpringBootDvegaApplication {
 //            for(String bean: beans) {
 //                System.out.println(bean);
 //            }
-
             // Print logs via slf4j
             log.info("CommandLineRunner.run();");
+        };
+    }
+
+    @Bean
+    @Profile("dev")
+    CommandLineRunner databaseRunner(LinkRepository linkRepository, CommentRepository commentRepository) {
+        return args -> {
+            Link link = new Link("Getting Started with Spring Boot 2", "https://link-to-site");
+            linkRepository.save(link);
+            Comment comment = new Comment("Spring Boot 2 is a really cool framework!", link);
+            commentRepository.save(comment);
+            // Ensure link is associated to comment
+            // comment must be persisted to DB first, then relationship added
+            link.addComment(comment);
         };
     }
 }

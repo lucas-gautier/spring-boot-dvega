@@ -3,6 +3,8 @@ package lucas.springbootdvega.repository;
 import lucas.springbootdvega.model.Link;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 /*
 The JpaRepository class is a sub-class of CrudRepository that provides:
 - A ton of basic functionality for CRUD database operations
@@ -14,5 +16,8 @@ Interfaces in Spring do not need to be implemented because Spring will create pr
 public interface LinkRepository extends JpaRepository<Link,Long> {
 
     // example JPA module query, which derives query from method name
-    //Link findByTitle(String title);
+    // Spring Data JPA will create the SQL query
+    Link findByTitle(String title);
+
+    List<Link> findAllByTitleLikeOrderByCreationDateDesc(String title);
 }
